@@ -7,6 +7,7 @@ const habitList = document.getElementById('habit-list');
 habitForm.addEventListener('submit', (e) => {
   e.preventDefault(); // Prevent page refresh
 
+  
   // Get the habit input value
   const habitValue = habitInput.value.trim();
 
