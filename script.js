@@ -25,3 +25,22 @@ habitForm.addEventListener('submit', (e) => {
     }
   });
   
+  habitForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newHabit = habitInput.value.trim();
+    
+    if (newHabit !== '') {
+      const habitItem = document.createElement('li');
+      const deleteButton = document.createElement('button');
+      
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => habitItem.remove());
+      
+      habitItem.textContent = newHabit;
+      habitItem.appendChild(deleteButton);
+      habitList.appendChild(habitItem);
+      
+      habitInput.value = '';
+    }
+  });
+  
