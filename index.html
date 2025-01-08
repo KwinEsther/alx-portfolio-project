@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS" />
     <meta
       name="description"
-      content="This is a website for tracking and building healthy habits."
+      content="This is a website for tracking and building healthy habits. Start tracking your daily habits to stay consistent and achieve your goals."
     />
     <title>Small Steps - Habit Tracker</title>
     <style>
@@ -40,8 +41,13 @@
     </style>
   </head>
   <body>
+    <img src="images/1.png" alt="An image representing healthy habits" />
     <h1>Welcome to your daily habit tracker!</h1>
-    <p><strong>Building habits</strong> starts with small, consistent steps.</p>
+    <p>
+      <strong>Building habits</strong> can be tough, I get it because I’ve been
+      there too. Maybe you've tried using sticky notes, reminders, or even apps
+      that felt too complicated or overwhelming.
+    </p>
     <form id="habit-form">
       <input
         id="habit-input"
@@ -52,6 +58,48 @@
       <button type="submit">Add Habit</button>
     </form>
     <ul id="habit-list"></ul>
-    <script src="script.js" defer></script>
+
+    <script>
+      // Select DOM elements
+      const habitForm = document.getElementById("habit-form");
+      const habitInput = document.getElementById("habit-input");
+      const habitList = document.getElementById("habit-list");
+
+      // Add event listener to the form
+      habitForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent page refresh
+
+        // Get the habit input value
+        const habitValue = habitInput.value.trim();
+
+        // Check if input is not empty
+        if (habitValue !== "") {
+          // Create a new list item
+          const habitItem = document.createElement("li");
+          habitItem.textContent = habitValue;
+
+          // Create a delete button
+          const deleteButton = document.createElement("button");
+          deleteButton.textContent = "Delete";
+          deleteButton.style.marginLeft = "10px"; // Add spacing for clarity
+
+          // Add event listener to the delete button
+          deleteButton.addEventListener("click", () => {
+            habitItem.remove(); // Remove the list item when clicked
+          });
+
+          // Append the delete button to the list item
+          habitItem.appendChild(deleteButton);
+
+          // Append the list item to the habit list
+          habitList.appendChild(habitItem);
+
+          // Clear the input field
+          habitInput.value = "";
+        } else {
+          alert("Please enter a habit!"); // Alert the user if input is empty
+        }
+      });
+    </script>
   </body>
 </html>
