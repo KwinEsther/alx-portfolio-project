@@ -3,100 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="HTML, CSS, Habits, Tracker" />
     <meta
       name="description"
-      content="This is a website for tracking and building healthy habits. Start tracking your daily habits to stay consistent and achieve your goals."
+      content="This is a website for tracking and building healthy habits."
     />
-    <title>Small Steps</title>
+    <title>Small Steps - Habit Tracker</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        background-color: #f7f9fc;
-        color: #333;
-      }
-      header {
-        display: flex;
-        align-items: center;
-      }
       img {
         width: 100px;
         border-radius: 10px;
+        float: left;
         margin-right: 10px;
       }
-      h1 {
-        margin: 0;
-        color: #2c3e50;
+      strong {
+        color: blue;
+        font-style: normal;
       }
-      .main-container {
-        margin-top: 20px;
-      }
-      form {
-        margin-bottom: 20px;
-      }
-      input[type="text"] {
-        padding: 10px;
-        width: 300px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-right: 10px;
-      }
-      button {
-        padding: 10px 15px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #2980b9;
+      p.maintext {
+        font-weight: bold;
       }
       ul {
         list-style-type: none;
         padding: 0;
       }
       li {
-        padding: 10px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        margin-bottom: 5px;
+        margin: 10px 0;
+      }
+      button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
         border-radius: 5px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
       }
     </style>
   </head>
   <body>
-    <header>
-      <img src="images/1.png" alt="An image representing healthy habits" />
-      <h1>Welcome to your daily habit tracker!</h1>
-    </header>
-
-    <div class="main-container">
-      <p>
-        <strong>Building habits</strong> can be tough, but it’s the small steps
-        that lead to big changes. Use this tracker to stay consistent and reach
-        your goals!
-      </p>
-
-      <!-- Form for adding habits -->
-      <form id="habit-form">
-        <input
-          type="text"
-          id="habit-input"
-          placeholder="Enter a new habit..."
-          required
-        />
-        <button type="submit">Add Habit</button>
-      </form>
-
-      <!-- Placeholder for habits -->
-      <ul id="habit-list"></ul>
-    </div>
-    <script src="script.js"></script>
+    <h1>Welcome to your daily habit tracker!</h1>
+    <p><strong>Building habits</strong> starts with small, consistent steps.</p>
+    <form id="habit-form">
+      <input
+        id="habit-input"
+        type="text"
+        placeholder="Enter a habit"
+        required
+      />
+      <button type="submit">Add Habit</button>
+    </form>
+    <ul id="habit-list"></ul>
+    <script src="script.js" defer></script>
   </body>
 </html>

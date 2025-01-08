@@ -3,44 +3,38 @@ const habitForm = document.getElementById('habit-form');
 const habitInput = document.getElementById('habit-input');
 const habitList = document.getElementById('habit-list');
 
-// Log elements to verify
-console.log(habitForm, habitInput, habitList);
-
 // Add event listener to the form
 habitForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent page refresh
-    
-    // Get the habit from the input
-    const newHabit = habitInput.value.trim();
-    
-    // Only add if input is not empty
-    if (newHabit !== '') {
-      // Create a new list item
-      const habitItem = document.createElement('li');
-      habitItem.textContent = newHabit;
-      habitList.appendChild(habitItem);
-  
-      // Clear the input field
-      habitInput.value = '';
-    }
-  });
-  
-  habitForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const newHabit = habitInput.value.trim();
-    
-    if (newHabit !== '') {
-      const habitItem = document.createElement('li');
-      const deleteButton = document.createElement('button');
-      
-      deleteButton.textContent = 'Delete';
-      deleteButton.addEventListener('click', () => habitItem.remove());
-      
-      habitItem.textContent = newHabit;
-      habitItem.appendChild(deleteButton);
-      habitList.appendChild(habitItem);
-      
-      habitInput.value = '';
-    }
-  });
-  
+  e.preventDefault(); // Prevent page refresh
+
+  // Get the habit input value
+  const habitValue = habitInput.value.trim();
+
+  // Check if input is not empty
+  if (habitValue !== '') {
+    // Create a new list item
+    const habitItem = document.createElement('li');
+    habitItem.textContent = habitValue;
+
+    // Create a delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.style.marginLeft = '10px'; // Add spacing for clarity
+
+    // Add event listener to the delete button
+    deleteButton.addEventListener('click', () => {
+      habitItem.remove(); // Remove the list item when clicked
+    });
+
+    // Append the delete button to the list item
+    habitItem.appendChild(deleteButton);
+
+    // Append the list item to the habit list
+    habitList.appendChild(habitItem);
+
+    // Clear the input field
+    habitInput.value = '';
+  } else {
+    alert('Please enter a habit!'); // Alert the user if input is empty
+  }
+});
