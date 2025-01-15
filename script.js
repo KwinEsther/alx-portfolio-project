@@ -1,41 +1,18 @@
-// Select DOM elements
-const habitForm = document.getElementById('habit-form');
-const habitInput = document.getElementById('habit-input');
-const habitList = document.getElementById('habit-list');
+// Placeholder for future JavaScript functionality
+console.log("Habit Tracker App Initialized");
 
-// Add event listener to the form
-habitForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent page refresh
+// Placeholder for guest mode functionality
+document.getElementById('guestModeButton').addEventListener('click', function() {
+    alert("You are now using the habit tracker as a guest. Your progress will not be saved.");
+    
+    // Example of tracking data temporarily (e.g., habit completion for a day)
+    localStorage.setItem('exerciseDay1', 'done ✅');
+    localStorage.setItem('readDay1', 'undone ❌');
 
-  
-  // Get the habit input value
-  const habitValue = habitInput.value.trim();
-
-  // Check if input is not empty
-  if (habitValue !== '') {
-    // Create a new list item
-    const habitItem = document.createElement('li');
-    habitItem.textContent = habitValue;
-
-    // Create a delete button
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.style.marginLeft = '10px'; // Add spacing for clarity
-
-    // Add event listener to the delete button
-    deleteButton.addEventListener('click', () => {
-      habitItem.remove(); // Remove the list item when clicked
-    });
-
-    // Append the delete button to the list item
-    habitItem.appendChild(deleteButton);
-
-    // Append the list item to the habit list
-    habitList.appendChild(habitItem);
-
-    // Clear the input field
-    habitInput.value = '';
-  } else {
-    alert('Please enter a habit!'); // Alert the user if input is empty
-  }
+    // You could display this data temporarily in the app
+    document.getElementById('habitStatus').innerHTML = `
+        Exercise: ${localStorage.getItem('exerciseDay1')}<br>
+        Reading: ${localStorage.getItem('readDay1')}
+    `;
 });
+
