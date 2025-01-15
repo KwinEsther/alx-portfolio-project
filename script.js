@@ -15,3 +15,32 @@ document.getElementById('guestModeButton').addEventListener('click', function() 
         Reading: ${localStorage.getItem('readDay1')}
     `;
 });
+
+// Sign-up form functionality
+document.getElementById('signUpForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    // For now, let's just store the email and password in localStorage (we'll connect to a backend later)
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userPassword', password);
+    
+    alert("Sign-up successful! You can now log in.");
+});
+
+// Login functionality
+function loginUser() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    if (localStorage.getItem('userEmail') === email && localStorage.getItem('userPassword') === password) {
+        alert("Login successful! Welcome back.");
+        // Save user session and allow saving data
+        localStorage.setItem('loggedIn', true);
+    } else {
+        alert("Invalid credentials. Please try again.");
+    }
+}
+
