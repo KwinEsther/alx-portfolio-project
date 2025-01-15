@@ -9,10 +9,9 @@ document.getElementById('guestModeButton').addEventListener('click', function() 
     localStorage.setItem('exerciseDay1', 'done ✅');
     localStorage.setItem('readDay1', 'undone ❌');
 
-    // You could display this data temporarily in the app
+    // You could display this data temporarily in the app.
     document.getElementById('habitStatus').innerHTML = `
         Exercise: ${localStorage.getItem('exerciseDay1')}<br>
         Reading: ${localStorage.getItem('readDay1')}
     `;
 });
-
