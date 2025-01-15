@@ -3,61 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="HTML, CSS" />
-    <meta
-      name="description"
-      content="This is a website for tracking and building healthy habits. Start tracking your daily habits to stay consistent and achieve your goals."
-    />
-    <title>Small Steps - Habit Tracker</title>
-    <style>
-      img {
-        width: 100px;
-        border-radius: 10px;
-        float: left;
-        margin-right: 10px;
-      }
-      strong {
-        color: blue;
-        font-style: normal;
-      }
-      p.maintext {
-        font-weight: bold;
-      }
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-      li {
-        margin: 10px 0;
-      }
-      button {
-        background-color: blue;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-    </style>
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link to the CSS -->
   </head>
   <body>
-    <img src="images/1.png" alt="An image representing healthy habits" />
+    <img src="1.png" width="400" height="122" alt="header photo" />
     <h1>Welcome to your daily habit tracker!</h1>
+
+    <section>
+      <p>
+        Building habits can be tough, I get it because I’ve been there too.
+        Maybe you've tried using sticky notes, reminders, or even apps that felt
+        too complicated or overwhelming.
+      </p>
+      <p>
+        That’s why I created this <b>habit tracker.</b> It's a simple, effective
+        way to help you stay consistent and make lasting changes in your life.
+        Whether you're just starting out or trying to get back on track, this is
+        your space to grow, one habit at a time.
+      </p>
+      <p>
+        <b
+          >Please see how to use this habit tracker below before getting
+          started</b
+        >
+      </p>
+    </section>
+
+    <a href="how_to_use_the_website.html"
+      >Learn how to use this habit tracker here</a
+    >
     <p>
-      <strong>Building habits</strong> can be tough, I get it because I’ve been
-      there too. Maybe you've tried using sticky notes, reminders, or even apps
-      that felt too complicated or overwhelming.
+      <b
+        >Use the app as a guest to see how it works or sign up/log in to save
+        your progress and take control of your journey</b
+      >.
     </p>
-    <form id="habit-form">
-      <input
-        id="habit-input"
-        type="text"
-        placeholder="Enter a habit"
-        required
-      />
-      <button type="submit">Add Habit</button>
-    </form>
-    <ul id="habit-list"></ul>
-    <script src="script.js"></script>
+
+    <section>
+      <p>Try as Guest</p>
+      <p>Sign Up Now</p>
+      <p>Already have an account? Log in here</p>
+    </section>
   </body>
 </html>
