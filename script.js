@@ -44,3 +44,22 @@ function loginUser() {
     }
 }
 
+// Adding new habits
+document.getElementById('habitForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const habitName = document.getElementById('habitName').value;
+
+    // Add habit to the table
+    const habitTable = document.getElementById('habitTable');
+    const newRow = habitTable.insertRow();
+    newRow.insertCell(0).textContent = habitName;
+    newRow.insertCell(1).textContent = '❌';
+    newRow.insertCell(2).textContent = '❌';
+    newRow.insertCell(3).textContent = '❌';
+
+    // Save habit to localStorage for the user (or store it in a backend)
+    localStorage.setItem(habitName, '❌❌❌'); // Example of saving the habit's progress for 3 days
+});
+
+
