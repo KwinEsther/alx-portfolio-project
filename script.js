@@ -1,65 +1,75 @@
-// Placeholder for future JavaScript functionality
 console.log("Habit Tracker App Initialized");
 
-// Placeholder for guest mode functionality
-document.getElementById('guestModeButton').addEventListener('click', function() {
-    alert("You are now using the habit tracker as a guest. Your progress will not be saved.");
-    
-    // Example of tracking data temporarily (e.g., habit completion for a day)
-    localStorage.setItem('exerciseDay1', 'done ✅');
-    localStorage.setItem('readDay1', 'undone ❌');
+// Elements
+const guestSection = document.getElementById("guest-section");
+const authSection = document.getElementById("auth-section");
+const tryGuestBtn = document.getElementById("try-guest-btn");
+const signUpBtn = document.getElementById("sign-up-btn");
+const logInBtn = document.getElementById("log-in-btn");
+const habitForm = document.getElementById("habitForm");
+const habitTable = document.getElementById("habitTable").querySelector("tbody");
 
-    // You could display this data temporarily in the app.
-    document.getElementById('habitStatus').innerHTML = `
-        Exercise: ${localStorage.getItem('exerciseDay1')}<br>
-        Reading: ${localStorage.getItem('readDay1')}
-    `;
+// Event: Try as Guest
+tryGuestBtn.addEventListener("click", function () {
+  alert("You're now in guest mode. Progress won't be saved. Please sign up or log-in to save your progress");
+  guestSection.style.display = "block";
+  authSection.style.display = "none";
 });
 
-// Sign-up form functionality
-document.getElementById('signUpForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-    
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    
-    // For now, let's just store the email and password in localStorage (we'll connect to a backend later)
-    localStorage.setItem('userEmail', email);
-    localStorage.setItem('userPassword', password);
-    
-    alert("Sign-up successful! You can now log in.");
+// Event: Redirect to Sign-Up Page
+signUpBtn.addEventListener("click", function () {
+  window.location.href = "signup.html"; // Redirect to the sign-up page
 });
 
-// Login functionality
-function loginUser() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    
-    if (localStorage.getItem('userEmail') === email && localStorage.getItem('userPassword') === password) {
-        alert("Login successful! Welcome back.");
-        // Save user session and allow saving data
-        localStorage.setItem('loggedIn', true);
-    } else {
-        alert("Invalid credentials. Please try again.");
-    }
-}
-
-// Adding new habits
-document.getElementById('habitForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const habitName = document.getElementById('habitName').value;
-
-    // Add habit to the table
-    const habitTable = document.getElementById('habitTable');
-    const newRow = habitTable.insertRow();
-    newRow.insertCell(0).textContent = habitName;
-    newRow.insertCell(1).textContent = '❌';
-    newRow.insertCell(2).textContent = '❌';
-    newRow.insertCell(3).textContent = '❌';
-
-    // Save habit to localStorage for the user (or store it in a backend)
-    localStorage.setItem(habitName, '❌❌❌'); // Example of saving the habit's progress for 3 days
+// Event: Redirect to Log-In Page
+logInBtn.addEventListener("click", function () {
+  window.location.href = "login.html"; // Redirect to the login page
 });
 
+// Event: Add Habit (Guest Mode)
+habitForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const habitName = document.getElementById("habitName").value;
 
+  // Add habit to the table
+  const newRow = habitTable.insertRow();
+  newRow.insertCell(0).textContent = habitName;
+  newRow.insertCell(1).textContent = "❌";
+  newRow.insertCell(2).textContent = "❌";
+  newRow.insertCell(3).textContent = "❌";
+
+  // Clear input field
+  document.getElementById("habitName").value = "";
+});
+
+// Event: Sign-Up Form
+document.getElementById("signUpForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  // Store credentials in localStorage (simulating sign-up)
+  localStorage.setItem("userEmail", email);
+  localStorage.setItem("userPassword", password);
+  alert("Sign-up successful! Please log in.");
+  window.location.href = "login.html"; // Redirect to login page after successful sign-up
+});
+
+// Event: Log-In Form
+document.getElementById("logInForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const loginEmail = document.getElementById("loginEmail").value;
+  const loginPassword = document.getElementById("loginPassword").value;
+
+  // Validate credentials
+  if (
+    localStorage.getItem("userEmail") === loginEmail &&
+    localStorage.getItem("userPassword") === loginPassword
+  ) {
+    alert("Login successful! Welcome back.");
+    guestSection.style.display = "block";
+    authSection.style.display = "none";
+  } else {
+    alert("Invalid credentials. Please try again.");
+  }
+});

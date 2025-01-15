@@ -5,59 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habit Tracker</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- Link to the CSS -->
   </head>
   <body>
-    <img src="images/1.png" width="400" height="122" alt="header photo" />
-    <h1>Welcome to your daily habit tracker!</h1>
-
-    <section>
+    <header>
+      <img src="images/1.png" width="100%" height="25%" alt="header photo" />
+      <h1>Welcome to your daily habit tracker!</h1>
       <p>
         Building habits can be tough, I get it because I’ve been there too.
         Maybe you've tried using sticky notes, reminders, or even apps that felt
         too complicated or overwhelming.
       </p>
       <p>
-        That’s why I created this <b>habit tracker.</b> It's a simple, effective
-        way to help you stay consistent and make lasting changes in your life.
-        Whether you're just starting out or trying to get back on track, this is
-        your space to grow, one habit at a time.
+        That’s why I created this habit tracker. It's a simple, effective way to
+        help you stay consistent and make lasting changes in your life. Whether
+        you're just starting out or trying to get back on track, this is your
+        space to grow, one habit at a time.
       </p>
       <p>
-        <b
+        <strong
           >Please see how to use this habit tracker below before getting
-          started</b
+          started.</strong
         >
       </p>
-    </section>
-
-    <a href="how_to_use_the_website.html"
-      >Learn how to use this habit tracker here</a
-    >
-    <p>
-      <b
-        >Use the app as a guest to see how it works or sign up/log in to save
-        your progress and take control of your journey</b
-      >.
-    </p>
+      <p>
+        <a href="how_to_use_the_website.html"
+          >Learn how to use this habit tracker here</a
+        >
+      </p>
+      <p>
+        <strong
+          >Use the app as a guest to see how it works or sign up/log in to save
+          your progress and take control of your journey.</strong
+        >
+      </p>
+    </header>
 
     <section>
-      <p>Try as Guest</p>
-      <p>Sign Up Now</p>
-      <p>Already have an account? Log in here</p>
+      <button id="try-guest-btn">Try as Guest</button>
+      <button id="sign-up-btn">Sign Up Now</button>
+      <button id="log-in-btn">Already have an account? Log in here</button>
     </section>
+
+    <section id="guest-section" style="display: none">
+      <h3>Your Habits</h3>
+      <form id="habitForm">
+        <label for="habitName">Habit Name:</label>
+        <input type="text" id="habitName" required />
+        <button type="submit">Add Habit</button>
+      </form>
+
+      <h4>Your Habit Progress</h4>
+      <table id="habitTable">
+        <thead>
+          <tr>
+            <th>Habit</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dynamic habit rows will be added here -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="auth-section" style="display: none">
+      <h3>Sign Up</h3>
+      <form id="signUpForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+        <br />
+        <button type="submit">Sign Up</button>
+      </form>
+      <p><a href="login.html">Already have an account? Log in here</a></p>
+
+      <h3>Log In</h3>
+      <form id="logInForm">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" required />
+        <br />
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required />
+        <br />
+        <button type="submit">Log In</button>
+      </form>
+    </section>
+
+    <script src="script.js"></script>
   </body>
-
-  <button id="guestModeButton">Try as Guest</button>
-
-  <h3>Sign Up</h3>
-  <form id="signUpForm">
-    <label for="email">Email:</label>
-    <input type="email" id="email" required /><br /><br />
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" required /><br /><br />
-
-    <button type="submit">Sign Up</button>
-  </form>
 </html>
