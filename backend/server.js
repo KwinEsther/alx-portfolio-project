@@ -1,5 +1,5 @@
 /**
- * Habit Tracker Backend Server
+ * Small Steps Backend Server
  * Initializes and starts the backend server, connecting all necessary middleware and routes.
  */
 
