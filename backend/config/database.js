@@ -3,22 +3,34 @@ const mysql = require('mysql2');
 
 // Create a connection to the database using environment variables
 const connection = mysql.createConnection({
-    host: process.env.DB_HOST,    // Database host (e.g., 'localhost' or a cloud host)
-    user: process.env.DB_USER,    // Database username (e.g., 'root')
-    password: process.env.DB_PASSWORD, // Database password (e.g., 'password123')
-    database: process.env.DB_NAME // The name of the database (e.g., 'small-steps')
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT || 3306,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 // Establish the connection and log an error if it fails
 connection.connect((err) => {
     if (err) {
-	// Log the error if the connection fails
-	console.error('Error connecting to the database: ' + err.stack);
-	return;
+        console.error('Error connecting to the database:', err);
+        return;
     }
-    // If connected, log the connection thread id
     console.log('Connected to the database as id ' + connection.threadId);
 });
 
-// Export the connection object so it can be used elsewhere in the backend
+// Handle connection errors after initial connection
+connection.on('error', (err) => {
+    console.error('Database error:', err);
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+        console.error('Database connection was closed.');
+    }
+    if (err.code === 'ER_CON_COUNT_ERROR') {
+        console.error('Database has too many connections.');
+    }
+    if (err.code === 'ECONNREFUSED') {
+        console.error('Database connection was refused.');
+    }
+});
+
 module.exports = connection;

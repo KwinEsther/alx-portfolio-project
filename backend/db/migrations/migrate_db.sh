@@ -5,7 +5,7 @@
 echo "Running database migration..."
 
 # Execute the migration script
-mysql -u knight -p simple-steps < db/migrations/001_initial_schema.sql
+mysql -u knight -p SmallSteps < db/migrations/001_initial_schema.sql
 
 # Confirmation message
 echo "Migration completed."

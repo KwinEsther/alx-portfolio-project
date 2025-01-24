@@ -18,7 +18,7 @@ const validationMiddleware = require('../middleware/validation');
 router.post(
     '/register',
     validationMiddleware.validateRegistration,
-    userController.registerUser
+    userController.register
 );
 
 // User Login Route
@@ -30,7 +30,7 @@ router.post(
 router.post(
     '/login',
     validationMiddleware.validateLogin,
-    userController.loginUser
+    userController.login
 );
 
 // Get User Profile Route
@@ -41,8 +41,8 @@ router.post(
  */
 router.get(
     '/profile',
-    authMiddleware.verifyToken,
-    userController.getUserProfile
+    authMiddleware,
+    userController.getProfile
 );
 
 module.exports = router;
