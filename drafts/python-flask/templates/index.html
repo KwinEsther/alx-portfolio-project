@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Welcome to Small Steps, your ultimate habit-tracking app!"
+    />
+    <title>Small Steps - Habit Tracker</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="container">
+          <img
+            src="{{ url_for('static', filename='images/1.png') }}"
+            alt="Small Steps logo"
+          />
+          <h1>Welcome to your daily habit tracker!</h1>
+        </div>
+      </header>
+
+      <main class="container">
+        <section class="intro">
+          <p>
+            Building habits can be tough, but with Small Steps, you can make
+            lasting changes in your life. Whether you're just starting out or
+            trying to get back on track, this is your space to grow, one habit
+            at a time.
+          </p>
+          <p>
+            <strong
+              >Please see how to use this habit tracker before getting
+              started.</strong
+            >
+          </p>
+          <a href="/how-to-use" class="btn"
+            >Learn how to use this habit tracker</a
+          >
+        </section>
+
+        <section class="auth-section">
+          <button @click="tryAsGuest" class="btn">Try as Guest</button>
+          <button @click="goToSignUp" class="btn btn-secondary">
+            Sign Up Now
+          </button>
+          <button @click="goToLogIn" class="btn">Log In</button>
+        </section>
+
+        <section v-if="isGuest" class="guest-section">
+          <h2>Your Habits</h2>
+          <form @submit.prevent="addHabit">
+            <input
+              v-model="newHabit"
+              type="text"
+              placeholder="Enter a new habit"
+              required
+            />
+            <button type="submit" class="btn">Add Habit</button>
+          </form>
+
+          <h3>Your Habit Progress</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Habit</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="habit in habits" :key="habit.id">
+                <td>${ habit.name }</td>
+                <td>
+                  <input type="checkbox" v-model="habit.completed" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Small Steps. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

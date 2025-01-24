@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Use the Habit Tracker - Small Steps</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="/" class="btn">Back to Homepage</a>
+        <h1>How to Use this Habit Tracker</h1>
+      </header>
+
+      <main>
+        <img
+          src="{{ url_for('static', filename='images/1.png') }}"
+          alt="Small Steps logo"
+          class="logo"
+        />
+
+        <section class="instructions">
+          <h2>Getting Started</h2>
+          <p>
+            To track your habits, add daily habits you want to build, such as
+            exercising, drinking water, reading, etc., and mark them accordingly
+            as you go.
+          </p>
+
+          <h3>Example:</h3>
+          <table class="example-table">
+            <thead>
+              <tr>
+                <th>Habits</th>
+                <th>Day 1</th>
+                <th>Day 2</th>
+                <th>Day 3</th>
+                <th>Day 4</th>
+                <th>Day 5</th>
+                <th>Day 6</th>
+                <th>Day 7</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Exercise</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td>Read</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>❌</td>
+                <td>❌</td>
+              </tr>
+              <tr>
+                <td>Spanish class</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="usage-guide">
+          <h2>Using Small Steps</h2>
+          <h3>1. Guest Mode</h3>
+          <ul>
+            <li>Use the app without signing up to test how it works.</li>
+            <li>
+              <strong>Note:</strong> Your data won't be saved. If you leave or
+              refresh the page, your progress will be lost.
+            </li>
+          </ul>
+
+          <h3>2. Sign Up to Save Your Progress</h3>
+          <ol>
+            <li>
+              Create a free account to save your habits and track your journey
+              over time.
+            </li>
+            <li>
+              After signing up, you can log in anytime to view, update, or add
+              new habits.
+            </li>
+          </ol>
+
+          <h3>3. Take Control of Your Journey</h3>
+          <p>
+            Stay consistent and work toward your goals with this simple,
+            effective tracker designed to keep you motivated.
+          </p>
+        </section>
+
+        <a href="/" class="btn">Return to Homepage</a>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Small Steps. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
